@@ -28,6 +28,16 @@ def inside(head):
     """Return True if head inside boundaries."""
     return -200 < head.x < 190 and -200 < head.y < 190
 
+#nueva funcion para mas placer, facilita el movimiento y cumplimiento de la tarea
+
+def move_food():
+    "Move food one step at random, staying inside the window."
+    options = [vector(10, 0), vector(-10, 0), vector(0, 10), vector(0, -10)]
+    step = options[randrange(4)]
+
+    if inside(food + step):
+        food.move(step)
+
 
 def move():
     """Move snake forward one segment."""
