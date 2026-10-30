@@ -40,7 +40,7 @@ def move_food():
 
 
 def move():
-    """Move snake forward one segment."""
+    "Move snake forward one segment."
     head = snake[-1].copy()
     head.move(aim)
 
@@ -57,6 +57,8 @@ def move():
         food.y = randrange(-15, 15) * 10
     else:
         snake.pop(0)
+
+    move_food()
 
     clear()
 
