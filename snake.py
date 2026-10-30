@@ -7,12 +7,14 @@ Exercises
 3. How would you move the food?
 4. Change the snake to respond to mouse clicks.
 """
-
+import random
 from random import randrange
 from turtle import *
 
 from freegames import square, vector
 
+COLORES=["blue", "green", "purple", "orange", "yellow"]
+snake_color, food_color=random.sample(COLORES,2)
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
@@ -28,7 +30,6 @@ def inside(head):
     """Return True if head inside boundaries."""
     return -200 < head.x < 190 and -200 < head.y < 190
 
-#nueva funcion para mas placer, facilita el movimiento y cumplimiento de la tarea
 
 def move_food():
     "Move food one step at random, staying inside the window."
@@ -63,9 +64,9 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, snake_color)
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, food_color)
     update()
     ontimer(move, 100)
 
